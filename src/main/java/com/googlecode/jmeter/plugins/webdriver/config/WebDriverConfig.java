@@ -282,11 +282,14 @@ public abstract class WebDriverConfig<T extends WebDriver> extends ConfigTestEle
 		if (isHeadless()) {
 			options.addArguments("--headless=new");
 		}
-
+        //设置缓存目录
+		options.addArguments("--user-data-dir="+"C:\\\\ChromeUserData");
 		String additionalArgs = trimmed(getChromeAdditionalArgs());
 		if (null != additionalArgs && !additionalArgs.isEmpty()) {
 			options.addArguments(additionalArgs.split("\\s+"));
 		}
+
+
 
 		// Starting browser in a specified location
 		String binaryPath = trimmed(getChromeBinaryPath());
